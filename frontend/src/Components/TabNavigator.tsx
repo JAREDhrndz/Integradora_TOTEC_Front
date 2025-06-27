@@ -1,18 +1,20 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './TabNavigator.css';
+import logo from '../../public/assets/icons/logo.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Función para cerrar el menú móvil al navegar
   const closeMobileMenu = () => setIsMenuOpen(false);
 
   return (
     <header className="navbar-container">
       <div className="navbar">
         <div className="navbar-brand">
-          <Link to="/" onClick={closeMobileMenu}>LOGO</Link>
+          <Link to="/" onClick={closeMobileMenu}>
+            <img src={logo} alt="Logo" className="navbar-logo" />
+          </Link>
         </div>
         
         {/* Menú desktop */}

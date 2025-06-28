@@ -22,6 +22,7 @@ const Navbar = () => {
           <Link to="/" onClick={closeMobileMenu}>Inicio</Link>
           <Link to="/servicios" onClick={closeMobileMenu}>Servicios</Link>
           <Link to="/productos" onClick={closeMobileMenu}>Productos</Link>
+          <Link to="/menu" onClick={closeMobileMenu}>Menu</Link>
           <Link to="/login" onClick={closeMobileMenu}>Login</Link>
         </nav>
 
@@ -41,6 +42,7 @@ const Navbar = () => {
           <Link to="/" onClick={closeMobileMenu}>Inicio</Link>
           <Link to="/servicios" onClick={closeMobileMenu}>Servicios</Link>
           <Link to="/productos" onClick={closeMobileMenu}>Productos</Link>
+          <Link to="/menu" onClick={closeMobileMenu}>Menu</Link>
           <Link to="/login" onClick={closeMobileMenu}>Login</Link>
         </nav>
       )}

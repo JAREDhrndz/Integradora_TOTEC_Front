@@ -1,0 +1,355 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  position: relative;
+}
+
+.data-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.data-container p {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  font-family: 'Montserrat', sans-serif;
+  color:  #717171;
+}
+
+
+
+.credit {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: inherit;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+  min-width: 600px;
+  max-width: 900px;
+  width: calc(100% - 100px);
+  height: 400px;
+}
+
+.option {
+  position: relative;
+  overflow: hidden;
+  min-width: 60px;
+  margin: 10px;
+  background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
+  background-size: auto 120%;
+  background-position: center;
+  cursor: pointer;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+  border-radius: 20px;
+  flex-grow: 1;
+}
+
+.option:nth-child(1) {
+  --defaultBackground: #ED5565;
+}
+.option:nth-child(2) {
+  --defaultBackground: #FC6E51;
+}
+.option:nth-child(3) {
+  --defaultBackground: #FFCE54;
+}
+.option:nth-child(4) {
+  --defaultBackground: #2ECC71;
+}
+.option:nth-child(5) {
+  --defaultBackground: #5D9CEC;
+}
+
+.option.active {
+  flex-grow: 10000;
+  transform: scale(1);
+  max-width: 600px;
+  margin: 0px;
+  border-radius: 30px;
+  background-size: auto 100%;
+}
+
+.option .shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+  z-index: 0; /* base nivel */
+}
+
+.option.active .shadow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.61) 43%,
+    rgba(0, 0, 0, 1) 83%
+  );
+  border-radius: inherit;
+  z-index: -1;
+}
+
+
+.option:not(.active) .shadow {
+  bottom: -40px;
+  box-shadow: inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
+}
+
+.option .label {
+  display: flex;
+  position: absolute;
+  right: 0px;
+  height: 40px;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+.option.active .label {
+  bottom: 20px;
+  left: 20px;
+}
+
+.option:not(.active) .label {
+  bottom: 10px;
+  left: 10px;
+}
+
+.option .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: black;
+  color: var(--defaultBackground);
+}
+
+.option .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  color: white;
+  white-space: pre;
+}
+
+.option .info > div {
+  position: relative;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
+  left: 20px;
+  opacity: 0;
+}
+
+.option.active .info > div {
+  left: 0;
+  opacity: 1;
+}
+
+.option .main {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.option .sub {
+  transition-delay: 0.1s;
+}
+
+@media screen and (max-width: 718px) {
+  .options .option:nth-child(5) {
+    display: none;
+  }
+}
+@media screen and (max-width: 638px) {
+  .options .option:nth-child(4) {
+    display: none;
+  }
+}
+@media screen and (max-width: 558px) {
+  .options .option:nth-child(3) {
+    display: none;
+  }
+}
+@media screen and (max-width: 478px) {
+  .options .option:nth-child(2) {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+/* 📊 Datos rápidos encima del GIF */
+.floating-data {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  z-index: 2;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+/* 📜 Sección desplegable */
+.sensor-details {
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  padding: 10px 15px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔗 Botón discreto en la esquina (solo cámara) */
+.cam-link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease-in-out;
+  z-index: 3;
+  backdrop-filter: blur(2px);
+}
+
+.cam-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+/* Estilo de datos rápidos tipo widget */
+.widget-data {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 3;
+  justify-content: space-between;
+   bottom: 20px;
+}
+
+
+.widget-value {
+  font-size: 5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 8px black;
+}
+
+/* Botón de + más info */
+.more-btn {
+  align-self: flex-end;
+  margin-top: auto;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  backdrop-filter: blur(3px);
+  transition: background 0.2s ease-in-out;
+  margin-top: auto;
+}
+
+
+.more-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Panel flotante de detalles */
+.floating-details {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.floating-box {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid #444;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  color: white;
+  box-shadow: 0 0 10px #000;
+  animation: fadeInUp 0.25s ease-out;
+}
+
+.close-detail {
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

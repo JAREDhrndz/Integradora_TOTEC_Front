@@ -29,10 +29,12 @@
 }
 
 .navbar-links a {
+  margin-top: 4px;
   color: white;
   text-decoration: none;
   transition: color 0.7s;
-  font-size: 1rem;
+  font-size: 18px;
+  font-family: 'Rasa', serif;
 }
 
 .navbar-links a:hover {
@@ -64,8 +66,8 @@ body {
 }
 
 .navbar-logo {
-  height: 30px;
-  width: auto;
+  height: 35px;
+  width: 40px;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -81,4 +83,71 @@ body {
   .navbar-mobile-links {
     display: flex;
   }
+}
+
+
+/* ===== ESTILOS PARA LA SECCIÓN DE USUARIO ===== */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 15px;
+}
+
+.username-link {
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'Rasa', serif;
+  text-decoration: none;
+  transition: color 0.7s;
+  padding: 4px 8px;
+  top: 0;
+}
+
+.username-link:hover {
+  color: #976c46;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0 5px;
+  transition: color 0.7s;
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn:hover {
+  color: #976c46;
+}
+
+/* ===== ESTILOS PARA MÓVIL ===== */
+.mobile-user-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 10px;
+}
+
+.mobile-user-section .username-link {
+  padding: 8px 0;
+}
+
+.mobile-user-section .logout-btn {
+  font-size: 1rem;
+  padding: 8px 0;
+  justify-content: flex-start;
+  color: white;
+}
+
+.mobile-user-section .logout-btn:hover {
+  color: #976c46;
 }

@@ -1,3 +1,4 @@
+// frontend/src/Screens/Menu.tsx
 import SideMenu from '../Components/SideMenu'
 
 const Menu = () => {

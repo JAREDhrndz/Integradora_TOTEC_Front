@@ -1,0 +1,54 @@
+/* Estructura base */
+.section2 {
+  background-color: #000000; /* Color sólido - cambia según tu paleta */
+  padding: 80px 20px;
+  color: white;
+}
+
+.section2-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Tipografía */
+.section2 h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #f8f8f8;
+}
+
+/* Grid de características */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: #dbdbdb;
+  line-height: 1.6;
+}

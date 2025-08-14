@@ -1,0 +1,131 @@
+/* FOOTER PROFESIONAL - VERSIÓN FINAL */
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 60px 0 30px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* SECCIÓN SUPERIOR - LOGOS */
+.logo-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.logos-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.footer-logo {
+  height: 50px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.powered-by-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.powered-by-text {
+  font-size: 0.55rem;
+  color: #dbdbdb;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+
+/* SECCIÓN MEDIA - CONTENIDO */
+.content-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.contact-section h4 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #BDAE8E;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.contact-section p {
+  margin: 10px 0;
+  color: #dbdbdb;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.map-container {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* SECCIÓN INFERIOR - LEGAL */
+.legal-section {
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #333;
+}
+
+.legal-section p {
+  color: #999;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+}
+
+.legal-links a {
+  color: #dbdbdb;
+  text-decoration: none;
+  font-size: 0.8rem;
+  margin: 0 8px;
+}
+
+.legal-links a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .logos-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .content-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .map-container {
+    height: 180px;
+    margin-top: 20px;
+  }
+}

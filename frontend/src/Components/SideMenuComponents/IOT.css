@@ -1,0 +1,88 @@
+.iot-container {
+  padding: 20px;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.loading, .error {
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.reports-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.reports-table th, .reports-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+.reports-table th {
+  background-color: #121212;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+}
+
+.reports-table tr:hover {
+  background-color: #2a2a2a;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pending {
+  background-color: #ff9800;
+  color: #121212;
+}
+
+.status-in-progress {
+  background-color: #2196f3;
+  color: #121212;
+}
+
+.status-resolved {
+  background-color: #4caf50;
+  color: #121212;
+}
+
+@media (max-width: 768px) {
+  .reports-table {
+    display: block;
+  }
+  
+  .reports-table th, .reports-table td {
+    padding: 8px 10px;
+  }
+}

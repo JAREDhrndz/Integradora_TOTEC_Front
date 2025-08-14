@@ -1,5 +1,8 @@
-//Login.tsx
+// frontend/src/Screens/Login.tsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
+import loginImage from '../assets/images/login.png';
 
 interface LoginFormData {
   username: string;
@@ -13,6 +16,7 @@ const LoginForm: React.FC = () => {
   });
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -28,60 +32,89 @@ const LoginForm: React.FC = () => {
     setIsLoading(true);
 
     try {
-      console.log('Datos del formulario:', formData);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      if (formData.username === 'admin' && formData.password === '12345') {
-        alert('Login exitoso!');
-      } else {
-        setError('Usuario o contraseña incorrectos');
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/login-user`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error("Credenciales Incorrectas");
       }
-    } catch (err: unknown) {
-      setError('Ocurrió un error al intentar iniciar sesión');
-      console.error('Error en login:', err);
+
+      localStorage.setItem('token', data.accessToken);
+      localStorage.setItem('username', formData.username);
+      localStorage.setItem('userRole', data.user.role); // Guardamos el rol
+      navigate('/menu');
+
+    } catch (err) {
+      setError("Credenciales Incorrectas");
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="login-container">
-      <h2>Iniciar Sesión</h2>
-      {error && <div className="error-message">{error}</div>}
+    <div className="login-page">
+      <div className="image-section">
+        <div className="totec-overlay">tótec</div>
+        <img 
+          src={loginImage} 
+          alt="Imagen decorativa" 
+          className="login-image"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = 'none';
+            console.error('Error al cargar la imagen de login');
+          }}
+        />
+      </div>
       
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="form-group">
-          <label htmlFor="username">Usuario:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-            required
-          />
+      <div className="form-section">
+        <div className="login-container">
+          <h1 className="login-title">Plataforma Inteligente de Monitoreo <br/> Agrícola para <span className="highlight-nogal">Nogaleras</span></h1>
+          <h2 className="login-subtitle">Inicia sesión para entrar al centro de <br/> gestión y administración</h2>
+          {error && <div className="error-message">{error}</div>}
+          
+          <form onSubmit={handleSubmit} className="login-form">
+            <div className="form-group">
+              <label htmlFor="username">Usuario:</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="password">Contraseña:</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            
+            <button 
+              type="submit" 
+              disabled={isLoading}
+              className="login-button"
+            >
+              {isLoading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
+            </button>
+          </form>
         </div>
-        
-        <div className="form-group">
-          <label htmlFor="password">Contraseña:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        
-        <button 
-          type="submit" 
-          disabled={isLoading}
-          className="login-button"
-        >
-          {isLoading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
-        </button>
-      </form>
+      </div>
     </div>
   );
 };

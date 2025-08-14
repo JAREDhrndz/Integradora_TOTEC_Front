@@ -1,0 +1,233 @@
+/* Tema oscuro principal */
+.users-content {
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #121212;
+}
+
+/* Tabla */
+.dark-table {
+  background-color: #1e1e1e !important;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dark-table .ant-table-thead > tr > th {
+  background-color: #292929 !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid #333 !important;
+}
+
+.dark-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #333 !important;
+  color: #e0e0e0 !important;
+  background-color: #1e1e1e !important;
+}
+
+.dark-table .ant-table-tbody > tr:nth-child(even) > td {
+  background-color: #252525 !important;
+}
+
+.dark-table .ant-table-tbody > tr:hover > td {
+  background-color: #333 !important;
+}
+
+/* Botones */
+.ant-btn.simple-edit-btn {
+  color: #1890ff !important;
+  border: 1px solid #1890ff !important;
+  background: transparent !important;
+  font-size: 16px !important;
+}
+
+.ant-btn.simple-edit-btn:hover {
+  color: #40a9ff !important;
+  border-color: #40a9ff !important;
+}
+
+.ant-btn.simple-delete-btn {
+  color: #ff4d4f !important;
+  border: 1px solid #ff4d4f !important;
+  background: transparent !important;
+  font-size: 16px !important;
+}
+
+.users-content p {
+  color: #bbbbbb;
+  margin-bottom: 20px;
+}
+
+.ant-btn.simple-delete-btn:hover {
+  color: #ff7875 !important;
+  border-color: #ff7875 !important;
+}
+
+/* Botones de edición */
+.ant-btn.simple-save-btn {
+  color: #52c41a !important;
+  border: 1px solid #52c41a !important;
+  background: transparent !important;
+}
+
+.ant-btn.simple-cancel-btn {
+  color: #d9d9d9 !important;
+  border: 1px solid #d9d9d9 !important;
+  background: transparent !important;
+}
+
+/* Campos de formulario */
+.ant-input,
+.ant-select-selector,
+.ant-select-dropdown,
+.ant-select-item {
+  background-color: #ffffff !important;
+  border-color: #444 !important;
+  color: #000000 !important;
+}
+
+.ant-input:focus,
+.ant-select-selector:focus,
+.ant-select-focused .ant-select-selector {
+  background-color: #d6d6d6 !important;
+  border-color: #1890ff !important;
+  box-shadow: none !important;
+  color: #121212;
+}
+
+/* Estados */
+.status-active {
+  color: #52c41a;
+}
+
+.status-inactive {
+  color: #f5222d;
+}
+
+/* Popconfirm */
+.popconfirm-dark .ant-popover-inner {
+  background-color: #1e1e1e !important;
+  border: 1px solid #333 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Estilos para la paginación minimalista */
+.ant-pagination {
+  margin-top: 16px;
+}
+
+.ant-pagination-item,
+.ant-pagination-prev,
+.ant-pagination-next,
+.ant-pagination-jump-prev,
+.ant-pagination-jump-next {
+  background: transparent !important;
+  border: none !important;
+}
+
+.ant-pagination-item a,
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  color: #e0e0e0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.ant-pagination-item-active a {
+  color: #e5f2ff !important;
+  font-weight: bold;
+}
+
+.ant-pagination-item:hover a,
+.ant-pagination-prev:hover .ant-pagination-item-link,
+.ant-pagination-next:hover .ant-pagination-item-link {
+  color: #e7f3ff !important;
+  background: transparent !important;
+}
+
+.ant-pagination-disabled .ant-pagination-item-link,
+.ant-pagination-disabled:hover .ant-pagination-item-link {
+  color: #666 !important;
+  opacity: 0.5;
+}
+
+/* Iconos de flechas */
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  font-size: 16px;
+}
+
+/* Eliminar bordes de focus */
+.ant-pagination-item:focus,
+.ant-pagination-prev:focus .ant-pagination-item-link,
+.ant-pagination-next:focus .ant-pagination-item-link {
+  outline: none;
+}
+
+/* Encabezado y botón */
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-user-button {
+  background-color: #1890ff !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-user-button:hover {
+  background-color: #40a9ff !important;
+  transform: translateY(-1px);
+}
+
+/* Ajuste responsive */
+@media (max-width: 768px) {
+  .users-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+.ant-table-cell{
+  font-size: 17px !important;
+}
+
+
+/* Estilos para los mensajes de error */
+.ant-form-item-explain-error {
+  color: #ff4d4f;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.ant-form-item-has-error .ant-input,
+.ant-form-item-has-error .ant-input-affix-wrapper,
+.ant-form-item-has-error .ant-input:hover,
+.ant-form-item-has-error .ant-input-affix-wrapper:hover {
+  border-color: #ff4d4f !important;
+}
+
+.ant-form-item-has-error .ant-input:focus,
+.ant-form-item-has-error .ant-input-affix-wrapper:focus {
+  border-color: #ff4d4f;
+  box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+}
+
+/* Hacer los mensajes de error más visibles */
+.ant-modal-body .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.ant-form-item-explain {
+  min-height: 22px;
+}
+
+
+.search-bar {
+margin-bottom: 20px;
+}
